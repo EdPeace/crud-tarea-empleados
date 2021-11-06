@@ -18,12 +18,13 @@ block container
                     label(for="dir") Dirección
                     input#dir.form-control(type="text" name="dir" required="required" value=r[0].dir)
                 .form-group.mt-3
-                    select(name="puesto").form-select
+                    label(for="depa") Departamento
+                    select#depa(name="depa").form-select
                         each x in y
-                            if r[0].puesto==x.idpuesto
-                                option(value=x.idpuesto selected) #{x.desc}
+                            if r[0].departamento===x.iddepa
+                                option(value=x.iddepa selected) #{x.desc}
                             else
-                                option(value=x.idpuesto) #{x.desc}
+                                option(value=x.iddepa) #{x.desc}
                 .form-group.mt-3
                     .d-grid.gap-2
                         button.btn.btn-primary.btn-block Actualizar
@@ -43,9 +44,10 @@ block container
                     label(for="dir") Dirección
                     input#dir.form-control(type="text" name="dir" required="required")
                 .form-group.mt-3
-                    select(name="puesto").form-select
+                    label(for="depa") Departamento
+                    select#depa(name="depa").form-select
                         each x in y
-                            option(value=x.idpuesto) #{x.desc}
+                            option(value=x.iddepa) #{x.desc}
                 .form-group.mt-3
                     .d-grid.gap-2
                         button.btn.btn-primary.btn-block Registrar

@@ -5,9 +5,9 @@ block head
 block container
     if id
         .container.mt-5(style={width: '350px'})
-            h1 Actualizar Puestos
+            h1 Actualizar Departamento
             hr
-            form(action="/puestos/"+id method="post")
+            form(action="/depa/"+id method="post")
                 .form-group
                     label(for="desc") Descripción
                     input#desc.form-control(type="text" name="desc" required="required" value=r[0].desc)
@@ -20,9 +20,9 @@ block container
                     .d-grid.gap-2
     else
         .container.mt-5(style={width: '350px'})
-            h1 Registrar Puestos
+            h1 Registrar Departamento
             hr
-            form(action="/puestos" method="post")
+            form(action="/depa" method="post")
                 .form-group
                     label(for="desc") Descripción
                     input#desc.form-control(type="text" name="desc" required="required")

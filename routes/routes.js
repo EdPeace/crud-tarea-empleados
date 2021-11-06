@@ -15,15 +15,15 @@ import {
 // Rutas para las vistas
 router.get('/',welcome)
 router.get('/empleados',emp_reg_wel)
-router.get('/puestos',pue_reg_wel)
-router.get('/delpue/:id',del_pue)
+router.get('/depa',pue_reg_wel)
+router.get('/deldep/:id',del_pue)
 router.get('/delemp/:id',del_emp)
-router.get('/puestos/:id',act_pue_w)
+router.get('/depa/:id',act_pue_w)
 router.get('/empleados/:id',act_emp_w)
 // Rutas para los controladores
 router.post('/empleados',emp_reg_p)
-router.post('/puestos',pue_reg_p)
+router.post('/depa',pue_reg_p)
 router.post('/empleados/:id',act_emp_p)
-router.post('/puestos/:id',act_pue_p)
+router.post('/depa/:id',act_pue_p)
 
 export default router

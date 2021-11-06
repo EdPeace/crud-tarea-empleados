@@ -11,7 +11,7 @@ block container
             th Nombre
             th Apellido
             th Dirección
-            th Puesto
+            th Departamento
             th Acción
         each r in result
             tr
@@ -19,28 +19,28 @@ block container
                 td #{r.nombre}
                 td #{r.apellido}
                 td #{r.dir}
-                each a in Puestos
-                    if a.idpuesto === r.puesto
+                each a in departamento
+                    if a.iddepa === r.departamento
                         td #{a.desc}
 
                 td
                     a(href="/empleados/"+r.idempleado).text-decoration-none ✍️
                     a(href="/delemp/"+r.idempleado).text-decoration-none ⛔
     a(href="/empleados").text-decoration-none Agregar ➕
-    h3 Bienvenido al Dashboard De Puestos
+    h3 Bienvenido al Dashboard De Departamento
     table.table
         tr.table-active
             th ID
             th Descripción
             th Salario
             th Acción
-        each r in Puestos
+        each r in departamento
             tr
-                td #{r.idpuesto}
+                td #{r.iddepa}
                 td #{r.desc}
                 td Lps. #{r.salario}
                 td
-                    a(href="/puestos/"+r.idpuesto).text-decoration-none ✍️
+                    a(href="/depa/"+r.iddepa).text-decoration-none ✍️
 
-                    a(href="/delpue/"+r.idpuesto).text-decoration-none ⛔
-    a(href="/puestos").text-decoration-none Agregar ➕
+                    a(href="/deldep/"+r.iddepa).text-decoration-none ⛔
+    a(href="/depa").text-decoration-none Agregar ➕
