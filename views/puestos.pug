@@ -1,0 +1,38 @@
+extends base
+
+block head
+    title Bienvenido
+block container
+    if id
+        .container.mt-5(style={width: '350px'})
+            h1 Actualizar Puestos
+            hr
+            form(action="/puestos/"+id method="post")
+                .form-group
+                    label(for="desc") Descripción
+                    input#desc.form-control(type="text" name="desc" required="required" value=r[0].desc)
+                .form-group
+                    label(for="salario") Salario
+                    input#salario.form-control(type="number" name="salario" required="required" value=r[0].salario)
+                .form-group.mt-3
+                    .d-grid.gap-2
+                        button.btn.btn-primary.btn-block Actualizar
+                    .d-grid.gap-2
+    else
+        .container.mt-5(style={width: '350px'})
+            h1 Registrar Puestos
+            hr
+            form(action="/puestos" method="post")
+                .form-group
+                    label(for="desc") Descripción
+                    input#desc.form-control(type="text" name="desc" required="required")
+                .form-group
+                    label(for="salario") Salario
+                    input#salario.form-control(type="number" name="salario" required="required")
+                .form-group.mt-3
+                    .d-grid.gap-2
+                        button.btn.btn-primary.btn-block Registrar
+                    .d-grid.gap-2
+
+    a(href="/" ).text-decoration-none
+        span.text-body 🔙

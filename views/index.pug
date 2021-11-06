@@ -1,0 +1,46 @@
+extends base
+
+block head
+    title Bienvenido
+
+block container
+    h3 Bienvenido al Dashboard De Empleados
+    table.table
+        tr.table-active
+            th ID
+            th Nombre
+            th Apellido
+            th Dirección
+            th Puesto
+            th Acción
+        each r in result
+            tr
+                td #{r.idempleado}
+                td #{r.nombre}
+                td #{r.apellido}
+                td #{r.dir}
+                each a in Puestos
+                    if a.idpuesto === r.puesto
+                        td #{a.desc}
+
+                td
+                    a(href="/empleados/"+r.idempleado).text-decoration-none ✍️
+                    a(href="/delemp/"+r.idempleado).text-decoration-none ⛔
+    a(href="/empleados").text-decoration-none Agregar ➕
+    h3 Bienvenido al Dashboard De Puestos
+    table.table
+        tr.table-active
+            th ID
+            th Descripción
+            th Salario
+            th Acción
+        each r in Puestos
+            tr
+                td #{r.idpuesto}
+                td #{r.desc}
+                td Lps. #{r.salario}
+                td
+                    a(href="/puestos/"+r.idpuesto).text-decoration-none ✍️
+
+                    a(href="/delpue/"+r.idpuesto).text-decoration-none ⛔
+    a(href="/puestos").text-decoration-none Agregar ➕

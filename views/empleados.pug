@@ -1,0 +1,55 @@
+extends base
+
+block head
+    title Bienvenido
+block container
+    if id
+        .container.mt-5(style={width: '350px'})
+            h1 Actualizar Empleado
+            hr
+            form(action="/empleados/"+id method="post")
+                .form-group
+                    label(for="nombre") Nombre
+                    input#nombre.form-control(type="text" name="nombre" required="required" value=r[0].nombre)
+                .form-group
+                    label(for="apellido") Apellido
+                    input#apellido.form-control(type="text" name="apellido" required="required" value=r[0].apellido)
+                .form-group.mt-3
+                    label(for="dir") Dirección
+                    input#dir.form-control(type="text" name="dir" required="required" value=r[0].dir)
+                .form-group.mt-3
+                    select(name="puesto").form-select
+                        each x in y
+                            if r[0].puesto==x.idpuesto
+                                option(value=x.idpuesto selected) #{x.desc}
+                            else
+                                option(value=x.idpuesto) #{x.desc}
+                .form-group.mt-3
+                    .d-grid.gap-2
+                        button.btn.btn-primary.btn-block Actualizar
+                    .d-grid.gap-2
+    else
+        .container.mt-5(style={width: '350px'})
+            h1 Registrar Empleado
+            hr
+            form(action="/empleados" method="post")
+                .form-group
+                    label(for="nombre") Nombre
+                    input#nombre.form-control(type="text" name="nombre" required="required")
+                .form-group
+                    label(for="apellido") Apellido
+                    input#apellido.form-control(type="text" name="apellido" required="required")
+                .form-group.mt-3
+                    label(for="dir") Dirección
+                    input#dir.form-control(type="text" name="dir" required="required")
+                .form-group.mt-3
+                    select(name="puesto").form-select
+                        each x in y
+                            option(value=x.idpuesto) #{x.desc}
+                .form-group.mt-3
+                    .d-grid.gap-2
+                        button.btn.btn-primary.btn-block Registrar
+                    .d-grid.gap-2
+
+    a(href="/" ).text-decoration-none
+        span.text-body 🔙
